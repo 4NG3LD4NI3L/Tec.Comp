@@ -23,10 +23,7 @@ function ProductCard({ image, name, description, fullDescription }) {
       {showFullDescription && (
         <div className="full-description-content">
           <h2>{name}</h2>
-          <p><strong>Altura:</strong> {fullDescription.height}</p>
-          <p><strong>Peso:</strong> {fullDescription.weight}</p>
-          <p><strong>Habilidades:</strong> {fullDescription.abilities ? fullDescription.abilities.join(', ') : 'No hay habilidades'}</p>
-          <p><strong>Movimientos:</strong> {fullDescription.moves ? fullDescription.moves.join(', ') : 'No hay movimientos'}</p>
+          <p>{fullDescription}</p>
         </div>
       )}
     </div>

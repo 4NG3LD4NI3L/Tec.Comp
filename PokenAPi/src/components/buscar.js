@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './buscar.css';
 
-const Search = () => {
+function Search({ onSearch }) {
+  const [query, setQuery] = useState('');
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSearch(query);
+  };
 
   return (
-    <div className="search">
-      <input 
+    <form className='search' onSubmit={handleSubmit}>
+      <input className='input'
         type="text"
-        
-        className="search-input"
-        placeholder="Buscar pokemon" 
+        value={query}
+        onChange={handleChange}
+        placeholder="Buscar pokemon"
       />
       <button type="submit">Buscar</button>
-    </div>
+    </form>
   );
-
 }
 
 export default Search;
